@@ -14,12 +14,33 @@ public class test04{
     static String distinguishing = "distinguishing";
 
     public static void main(String[] args) {
+
+
         Scanner sc =new Scanner(System.in);
+        int a = Integer.parseInt(sc.nextLine());
+
+        String s = sc.nextLine();
+        String str = s.substring(0,a);
+
+        if(str.contains("dontlike"))str= str.replaceAll("dontlike","li,ke");
+        if(str.contains("hate"))str= str.replaceAll("hate","lo,ve");
+        if(str.contains("dislike"))str= str.replaceAll("dislike","li,ke");
+        if(str.contains("distinguishing"))str= str.replaceAll("distinguishing","e,xciting");
+        StringBuffer str1 = new StringBuffer();
+        String[] a1 = str.split(",");
+        for (int i = 0; i < a1.length; i++) {
+            str1.append(a1[i]);
+        }
+        System.out.println(str1);
+
+
+
+        /*Scanner sc =new Scanner(System.in);
         int a = Integer.parseInt(sc.nextLine());
         String s = sc.nextLine();
         String str = s.substring(0,a);
         System.out.println(fanZhuan(a, str));
-        //System.out.println(s.indexOf("d",0));
+        //System.out.println(s.indexOf("d",0));*/
     }
 
     /**
@@ -30,7 +51,7 @@ public class test04{
      * @param yuan 需要替换的字符
      * @return 替换后的字符串
      */
-    static String biJiao(String old,String New,String str,String yuan){
+    /*static String biJiao(String old,String New,String str,String yuan){
         int index = 0;
         while (index<str.length()){
             index = str.indexOf(old, index);
@@ -74,19 +95,9 @@ public class test04{
         str = biJiao("D","exciting",str,distinguishing);
 
         return str;
-    }
+    }*/
 
-    /*Scanner sc =new Scanner(System.in);
-    int a = Integer.parseInt(sc.nextLine());
-    String s = sc.nextLine();
-    String str = s.substring(0,a);
 
-        if(str.contains("dontlike"))str= str.replaceAll("dontlike","like");
-        if(str.contains("hate"))str= str.replaceAll("hate","love");
-        if(str.contains("dislike"))str= str.replaceAll("dislike","like");
-        if(str.contains("distinguishing"))str= str.replaceAll("distinguishing","exciting");
-
-        System.out.println(str);*/
 
 
 }
