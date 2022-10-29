@@ -117,16 +117,17 @@
     </delete>
 
 
+    <!--简单语句可以用注解开发
     <select id="selectAll" resultMap="brandResultMap">
         select *
         from tb_brand;
-    </select>
+    </select>-->
 
-    <select id="selectByIdBrand" resultMap="brandResultMap">
+    <!--<select id="selectByIdBrand" resultMap="brandResultMap">
         select *
         from tb_brand
         where id = #{id};
-    </select>
+    </select>-->
     <!--<select id="selectByStatusAndByBrandNameAndByCompanyName" resultMap="brandResultMap" >
         select *
         from tb_brand where status = #{status} and brand_name like #{brandName} and company_name like #{companyName};
