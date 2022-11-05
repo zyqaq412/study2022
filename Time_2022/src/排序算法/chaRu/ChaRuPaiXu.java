@@ -1,4 +1,4 @@
-package time_10_21.chaRu;
+package 排序算法.chaRu;
 
 /**
  * @title: ChaRuPaiXu

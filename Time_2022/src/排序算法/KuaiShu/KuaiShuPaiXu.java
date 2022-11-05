@@ -1,4 +1,4 @@
-package time_10_23.KuaiShu;
+package 排序算法.KuaiShu;
 
 import java.util.Calendar;
 

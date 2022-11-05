@@ -1,4 +1,4 @@
-package time_10_21.xuanZhe;
+package 排序算法.xuanZhe;
 
 /**
  * @title: XuanZhePaiXu

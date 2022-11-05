@@ -1,4 +1,4 @@
-package time_10_22;
+package 其他.第六届ACM练习赛测试代码;
 
 import java.util.Arrays;
 import java.util.Scanner;
