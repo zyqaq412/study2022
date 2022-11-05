@@ -26,11 +26,10 @@ public class BinarySearch {
             return  search2(arr,findNumber,left,mid-1);
         }else if (arr[mid] < findNumber){
             return search2(arr,findNumber,mid+1,right);
-        }else if (arr[mid]==findNumber){
-
+        }else{
             return mid;
         }
-        return -1;
+
     }
 
     //循环查找
