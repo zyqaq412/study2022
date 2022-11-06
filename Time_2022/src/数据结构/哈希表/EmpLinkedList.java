@@ -40,4 +40,17 @@ public class EmpLinkedList {
             temp = temp.next;
         }
     }
+    //根据id查找
+    public Emp findEmpById(int id){
+        if (head==null) return null;
+        if (head.id==id)return head;
+        Emp temp = head;
+        while (temp.next!=null){
+            temp = temp.next;
+            if (temp.id==id){
+                return temp;
+            }
+        }
+        return null;
+    }
 }

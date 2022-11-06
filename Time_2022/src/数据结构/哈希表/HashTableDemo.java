@@ -13,7 +13,7 @@ public class HashTableDemo {
         empLinkedListArray = new EmpLinkedList[size];
     }
     public void add(Emp emp){
-        int i= hashFun(emp);
+        int i= hashFun(emp.id);
         if (empLinkedListArray[i] == null){
             empLinkedListArray[i] = new EmpLinkedList();
         }
@@ -25,7 +25,16 @@ public class HashTableDemo {
         }
     }
     //编写散列函数，使用一个简单取模法
-    public int hashFun(Emp emp){
-        return emp.id%empLinkedListArray.length;
+    public int hashFun(int id){
+        return id%empLinkedListArray.length;
+    }
+    public void findEmpById(int id){
+        int i = hashFun(id);
+        Emp emp = empLinkedListArray[i].findEmpById(id);
+        if (null == emp) {
+            System.out.println("未找到");
+        }else {
+            System.out.println(emp.name);
+        }
     }
 }

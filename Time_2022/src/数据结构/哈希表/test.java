@@ -26,5 +26,6 @@ public class test {
         htd.add(emp7);
         htd.add(emp8);
         htd.list();
+        htd.findEmpById(7);
     }
 }
