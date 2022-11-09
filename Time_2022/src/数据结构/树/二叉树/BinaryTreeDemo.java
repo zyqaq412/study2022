@@ -8,6 +8,7 @@ package 数据结构.树.二叉树;
  *
  * 二叉树
  * 前序中序后序遍历
+ * 前序中序后序查找
  */
 public class BinaryTreeDemo {
     public static void main(String[] args) {
@@ -28,10 +29,11 @@ public class BinaryTreeDemo {
         bt.setRoot(h3);
         System.out.println("前序");
         bt.perOrder();
-        System.out.println("中序");
+       /* System.out.println("中序");
         bt.infixOrder();
         System.out.println("后序");
-        bt.postOrder();
+        bt.postOrder();*/
+        System.out.println(bt.perOrderSearch(15));
     }
 
 }
@@ -41,6 +43,30 @@ class BinaryTree{
     public void setRoot(HeroNode root) {
         this.root = root;
     }
+
+
+    //前序查找
+    public HeroNode perOrderSearch(int no){
+        if (this.root != null){
+           return this.root.preOrderSearch(no);
+        }
+        return null;
+    }
+    //中序查找
+    public HeroNode infixOrderSearch(int no){
+        if (this.root != null){
+          return this.root.infixOrderSearch(no);
+        }
+        return null;
+    }
+    //后序查找
+    public HeroNode postOrderSearch(int no){
+        if (this.root != null){
+          return this.root.postOrderSearch(no);
+        }
+        return null;
+    }
+
     //前序遍历
     public void perOrder(){
         if (this.root != null){
@@ -114,6 +140,53 @@ class HeroNode{
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    //编写前序查找方法
+    public HeroNode preOrderSearch(int no){
+        if (this.no == no) return this;
+        HeroNode resNode = null;
+        if (this.left != null){
+           resNode =this.left.preOrderSearch(no);
+        }
+        if (resNode != null) return resNode;
+        if (this.right != null){
+           resNode =this.right.preOrderSearch(no);
+        }
+        if (resNode != null) return resNode;
+        return null;
+    }
+
+    //编写中序查找方法
+
+    public HeroNode infixOrderSearch(int no){
+        HeroNode resNode = null;
+        if (this.left != null){
+            resNode= this.left.infixOrderSearch(no);
+        }
+        if (resNode != null) return resNode;
+        if (this.no == no) return this;
+        if (this.right != null){
+            resNode = this.right.infixOrderSearch(no);
+        }
+        if (resNode != null) return resNode;
+        return null;
+    }
+
+    //编写后序查找方法
+    public HeroNode postOrderSearch(int no){
+        HeroNode resNode = null;
+        if (this.left != null){
+            resNode= this.left.postOrderSearch(no);
+        }
+        if (resNode != null) return resNode;
+        if (this.right != null){
+            resNode= this.right.postOrderSearch(no);
+        }
+        if (resNode != null) return resNode;
+        if (this.no == no) return this;
+        return null;
+    }
+
     //编写前序遍历方法
     public void preOrder(){
         System.out.println(this);//先输出父结点
