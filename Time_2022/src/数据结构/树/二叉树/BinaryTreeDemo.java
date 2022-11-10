@@ -20,11 +20,13 @@ public class BinaryTreeDemo {
         HeroNode h3 = new HeroNode(3,"h3");
         HeroNode h4 = new HeroNode(4,"h4");
         HeroNode h5 = new HeroNode(5,"h5");
+        HeroNode h6 = new HeroNode(6,"h6");
 
         h3.setLeft(h1);
         h3.setRight(h5);
         h5.setLeft(h4);
-        h1.setRight(h2);
+        h5.setRight(h2);
+        h4.setLeft(h6);
 
         bt.setRoot(h3);
         System.out.println("前序");
@@ -33,7 +35,11 @@ public class BinaryTreeDemo {
         bt.infixOrder();
         System.out.println("后序");
         bt.postOrder();*/
-        System.out.println(bt.perOrderSearch(15));
+        //System.out.println(bt.perOrderSearch(15));
+
+        bt.delNode(6);
+        System.out.println("删除后---前序");
+        bt.perOrder();
     }
 
 }
@@ -44,6 +50,17 @@ class BinaryTree{
         this.root = root;
     }
 
+
+    //删除结点
+    public void delNode(int no){
+        if (root != null) {
+            if (root.getNo() ==no){
+                root = null;
+            }else {
+                root.delNode(no);
+            }
+        }else System.out.println("空树不能删除");
+    }
 
     //前序查找
     public HeroNode perOrderSearch(int no){
@@ -226,4 +243,20 @@ class HeroNode{
         }
         System.out.println(this);
     }
+    //递归删除结点
+    //如果当前结点是叶子结点就删除该结点
+    //不是就删除该子树
+    public void delNode(int no){
+        if (this.left!=null && this.left.no==no){
+            this.left=null;
+            return;
+        }
+        if (this.right!=null && this.right.no==no){
+            this.right=null;
+            return;
+        }
+        if (this.left!=null)this.left.delNode(no);
+        if (this.right!=null)this.right.delNode(no);
+    }
+
 }
