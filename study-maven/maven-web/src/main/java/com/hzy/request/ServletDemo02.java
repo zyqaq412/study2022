@@ -1,4 +1,4 @@
-package com.hzy;
+package com.hzy.request;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,12 +44,12 @@ public class ServletDemo02 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //通过request对象 获取请求数据
-        String name = request.getParameter("name");//url?name=zhangsan
+        String username = request.getParameter("username");//url?name=zhangsan
 
         //使用response 设置响应数据
         //响应头
         response.setHeader("content-type","text/html;charset=utf-8");
         //响应内容
-        response.getWriter().write("<h1>"+name+"，欢迎你！</h1>");
+        response.getWriter().write("<h1>"+username+"，欢迎你！</h1>");
     }
 }
