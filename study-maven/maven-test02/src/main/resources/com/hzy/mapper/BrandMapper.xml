@@ -7,7 +7,7 @@
     namespace:名称空间
 -->
 
-<mapper namespace="com.hzy.mapper.BrandMapper">
+<mapper namespace="com.hzy.mapper.BrandDemoMapper">
     <!--<select id="selectAll" resultType="com.hzy.pojo.User">-->
     <!--取了别名后就不需要加包名，也不分大小写-->
 
