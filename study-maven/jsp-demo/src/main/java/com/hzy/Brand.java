@@ -29,6 +29,7 @@ public class Brand {
         this.description = description;
     }
 
+
     public Brand(Integer id, String brandName, String companyName, Integer ordered, String description, Integer status) {
         this.id = id;
         this.brandName = brandName;
