@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+  <input type="button" v-on:click="show()" value="anliu"><br>
+  <input type="button" @click="show()" value="anliu"><br>
+</div>
+</body>
+<script>
+  new Vue({
+    el:'#app',
+    methods:{
+      show(){
+        alert(1)
+      }
+    },
+    mounted(){
+      alert("加载完毕")
+    }
+
+  })
+
+</script>
+</html>
