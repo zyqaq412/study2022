@@ -15,7 +15,7 @@ public class ProjectInterceptor2 implements HandlerInterceptor {
 //        String contentType = request.getHeader("Content-Type");
 //        HandlerMethod hm = (HandlerMethod)handler;
         System.out.println("preHandle...222");
-        return false;
+        return true;
     }
 
     @Override
