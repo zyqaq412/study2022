@@ -19,6 +19,7 @@ public class ProjectAdvice {
     public void runSpeed(ProceedingJoinPoint pjp) throws Throwable {
         //获取执行的签名对象
         Signature signature = pjp.getSignature();
+
         String className = signature.getDeclaringTypeName();
         String methodName = signature.getName();
 

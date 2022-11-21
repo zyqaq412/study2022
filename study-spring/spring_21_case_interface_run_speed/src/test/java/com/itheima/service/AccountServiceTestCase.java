@@ -18,7 +18,7 @@ public class AccountServiceTestCase {
 
     @Test
     public void testFindById(){
-        Account ac = accountService.findById(2);
+        Account ac = accountService.findById(1);
     }
 
     @Test
