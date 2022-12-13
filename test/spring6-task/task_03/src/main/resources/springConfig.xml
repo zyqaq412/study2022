@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="bookDaoBean" class="com.hzy.dao.BookDao"></bean>
+    <bean id="bookServiceBean" class="com.hzy.service.BookService">
+        <!--property标签：设置注入属性-->
+        <!--name属性：设置注入的属性名，实际是set方法对应的名称-->
+        <!--ref属性：设置注入引用类型bean的id或name-->
+        <property name="bookDao" ref="bookDaoBean"/>
+    </bean>
+    <bean id="userDaoBean" class="com.hzy.dao.UserDao"></bean>
+    <bean id="userServiceBean" class="com.hzy.service.UserService">
+        <!--根据构造方法参数类型注入-->
+        <constructor-arg name="userDao" ref="userDaoBean"/>
+    </bean>
+</beans>

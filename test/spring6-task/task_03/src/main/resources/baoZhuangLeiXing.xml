@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="data2Bean1" class="com.hzy.pojo.Data2">
+        <property name="aBoolean" value="true"/>
+        <property name="integer" value="10"/>
+        <property name="string" value="hzy"/>
+    </bean>
+    <bean id="data2Bean2" class="com.hzy.pojo.Data2">
+        <constructor-arg name="integer" value="30"/>
+    </bean>
+</beans>
