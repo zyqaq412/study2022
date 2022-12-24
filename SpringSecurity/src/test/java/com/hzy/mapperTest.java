@@ -1,6 +1,8 @@
 package com.hzy;
 
+import com.hzy.domain.entity.Menu;
 import com.hzy.domain.entity.User;
+import com.hzy.mapper.MenuMapper;
 import com.hzy.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,17 @@ import java.util.List;
 public class mapperTest {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private MenuMapper menuMapper;
 
+
+    @Test
+    public void selectPermsByUserIdTest(){
+        List<String> list = menuMapper.selectPermsByUserId(1L);
+        //list.forEach(a -> System.out.println(a));
+        System.out.println(list);
+
+    }
     @Test
     public void testUserMapper(){
         List<User> users = userMapper.selectList(null);

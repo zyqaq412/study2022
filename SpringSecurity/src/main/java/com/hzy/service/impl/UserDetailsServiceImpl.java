@@ -3,6 +3,7 @@ package com.hzy.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.hzy.domain.LoginUser;
 import com.hzy.domain.entity.User;
+import com.hzy.mapper.MenuMapper;
 import com.hzy.mapper.UserMapper;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -26,6 +30,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private MenuMapper menuMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,8 +45,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new RuntimeException("用户名错误");
         }
         // TODO 根据用户查询权限信息 添加到LoginUser中
+        List<String> list = menuMapper.selectPermsByUserId(user.getId());
 
         // 封装成UserDetails对象返回
-        return new LoginUser(user);
+        return new LoginUser(user,list);
     }
 }
