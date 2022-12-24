@@ -19,5 +19,12 @@ public class HelloController {
         return "hello";
     }
 
+    @RequestMapping("/hello2")
+    @PreAuthorize("hasAuthority('admin')")
+    public String hello2(){
+        return "hello2";
+    }
+
+
 
 }
